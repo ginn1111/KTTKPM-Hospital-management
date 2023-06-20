@@ -1,7 +1,8 @@
+import Providers from '@/components/Providers';
+import { Space_Mono } from 'next/font/google';
 import './globals.css';
-import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const spaceMono = Space_Mono({ subsets: ['vietnamese'], weight: '400' });
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={spaceMono.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

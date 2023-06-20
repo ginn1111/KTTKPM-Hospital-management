@@ -1,3 +1,3 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit';
 
-export const templateAction = createAction<string>('templateAction')
+export const templateAction = createAction<string>('templateAction');

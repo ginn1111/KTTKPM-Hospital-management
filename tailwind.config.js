@@ -4,8 +4,16 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './layout/**/*.tsx',
   ],
   theme: {
+    colors: {
+      primary: '#54d463',
+      text: '#09250c',
+      background: '#effbf0',
+      button: '#ffffff',
+      accent: '#3fcf50',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

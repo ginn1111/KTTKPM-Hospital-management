@@ -1,11 +1,9 @@
-'use client';
-import RootProvider from '@/components/Provider';
-import Template from '@/components/Template';
+import Login from '@/components/Login/Login';
 
 export default function Home() {
   return (
-    <RootProvider>
-      <Template />
-    </RootProvider>
+    <div className="grid place-items-center min-h-screen w-full p-[80px]">
+      <Login />
+    </div>
   );
 }
