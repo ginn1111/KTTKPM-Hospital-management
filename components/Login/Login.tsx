@@ -31,7 +31,7 @@ const Login = () => {
       <Row className="w-full" align="middle">
         <Col span={11}>
           <Image
-            src="/imgs/Login.avif"
+            src="/imgs/login.avif"
             width="200"
             height="300"
             className="w-full h-full max-h-[400px]"

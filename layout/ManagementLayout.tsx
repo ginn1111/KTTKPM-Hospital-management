@@ -1,9 +1,9 @@
 'use client';
 import { ReactNode } from 'react';
 import { Avatar, Dropdown, Layout } from 'antd';
-import Sidebar from './Sidebar';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { useRouter } from 'next/navigation';
+import Sidebar from './Sidebar';
 const { Content, Header } = Layout;
 
 const generateMenu = (router: ReturnType<typeof useRouter>): ItemType[] => [

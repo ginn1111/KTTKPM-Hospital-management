@@ -1,5 +1,4 @@
-export const genderIdx: { [K in Gender]: string } = {
-  male: 'Nam',
-  female: 'Nữ',
-  other: 'Khác',
+export const genderIdx: { [K: number]: string } = {
+  1: 'Nam',
+  0: 'Nữ',
 };

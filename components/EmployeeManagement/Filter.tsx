@@ -21,7 +21,7 @@ const GENDER_OPTIONS: Partial<OptionProps>[] = [
 const Filter = () => {
   return (
     <Form>
-      <Row gutter={[12, 0]}>
+      <Row gutter={[8, 0]}>
         <Col span={5}>
           <Form.Item name="id" className="mb-0">
             <Input placeholder="Mã nhân viên" />

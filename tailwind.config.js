@@ -7,14 +7,17 @@ module.exports = {
     './layout/**/*.tsx',
   ],
   theme: {
-    colors: {
-      primary: '#54d463',
-      text: '#09250c',
-      background: '#effbf0',
-      button: '#ffffff',
-      accent: '#3fcf50',
-    },
     extend: {
+      colors: {
+        primary: '#54d463',
+        text: '#09250c',
+        background: '#effbf0',
+        button: '#ffffff',
+        accent: '#3fcf50',
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)'],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

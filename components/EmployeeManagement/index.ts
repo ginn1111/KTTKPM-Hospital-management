@@ -1,3 +1,3 @@
-import EmployeeManagement from './EmployeeManagement';
+import EmployeeTable from './EmployeeTable';
 
-export default EmployeeManagement;
+export default EmployeeTable;

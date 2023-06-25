@@ -1,15 +1,16 @@
 declare global {
-  export type Gender = 'male' | 'female' | 'other';
-
+  export type ValueOf<T> = T[keyof T];
   export type Employee = {
     id: string;
     fullName: string;
-    gender: Gender;
-    dateOfBirth: string;
+    gender: number;
+    dateOfBirdth: string;
     address: string;
-    department: string;
-    position: string;
-    title: string;
+    phone: string;
+    email: string;
+    isActive: boolean;
+    isComposite: boolean;
+    departmentId: string;
   };
 }
 

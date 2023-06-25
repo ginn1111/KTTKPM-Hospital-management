@@ -1,6 +1,6 @@
 'use client';
 import store from '@/store';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, notification } from 'antd';
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 
@@ -13,6 +13,9 @@ const defaultData = {
 };
 
 const Providers = ({ children }: { children: ReactNode }) => {
+  notification.config({
+    duration: 2,
+  });
   return (
     <ConfigProvider
       theme={{
@@ -22,6 +25,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
           colorBorder: defaultData.colorPrimary,
           controlItemBgActive: defaultData.accent,
           borderRadius: defaultData.borderRadius,
+          fontFamily: 'var(--font-mono)',
         },
       }}
     >
