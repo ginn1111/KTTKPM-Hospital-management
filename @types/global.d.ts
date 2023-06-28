@@ -1,5 +1,6 @@
 declare global {
   export type ValueOf<T> = T[keyof T];
+
   export type Employee = {
     id: string;
     fullName: string;
@@ -11,6 +12,15 @@ declare global {
     isActive: boolean;
     isComposite: boolean;
     departmentId: string;
+  };
+
+  export type Department = {
+    id: number;
+    departmentName: string;
+    leaderId: string | null;
+    isActive: true;
+    isComposite: true;
+    departmentId: null | string | number;
   };
 }
 

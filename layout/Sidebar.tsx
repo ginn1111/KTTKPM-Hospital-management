@@ -1,4 +1,4 @@
-import { SlidersOutlined, UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 import { Layout, Menu, MenuProps, SiderProps } from 'antd';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -22,11 +22,11 @@ const ITEMS: MenuProps['items'] = [
     label: <Link href="/quan-ly-cham-cong">Quản lý chấm công</Link>,
     icon: <FieldTimeOutlined />,
   },
-  {
-    key: '/quan-ly-phong-ban',
-    label: <Link href="/quan-ly-phong-ban">Quản lý phòng ban</Link>,
-    icon: <SlidersOutlined />,
-  },
+  // {
+  //   key: '/quan-ly-phong-ban',
+  //   label: <Link href="/quan-ly-phong-ban">Quản lý phòng ban</Link>,
+  //   icon: <SlidersOutlined />,
+  // },
 ];
 
 type SidebarProps = {} & SiderProps;

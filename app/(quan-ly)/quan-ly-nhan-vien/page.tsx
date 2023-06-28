@@ -1,4 +1,6 @@
 import EmployeeManagement from '@/components/EmployeeManagement';
+import Preloader from '@/components/EmployeeManagement/Preloader';
+import { getAllDepartment } from '@/libs/department/getAllDepartment';
 import { getAllEmployee } from '@/libs/employee/getAllEmployee';
 import { Metadata } from 'next';
 
@@ -9,9 +11,18 @@ export const metadata: Metadata = {
 
 const EmployeeManagementPage = async () => {
   const employeeListData = getAllEmployee();
-  const employeeList: Employee[] = await employeeListData;
+  const departmentListData = getAllDepartment();
+  const [employeeList, departmentList] = await Promise.all([
+    employeeListData,
+    departmentListData,
+  ]);
 
-  return <EmployeeManagement employeeList={employeeList} />;
+  return (
+    <main>
+      <Preloader employeeList={employeeList} departmentList={departmentList} />
+      <EmployeeManagement />
+    </main>
+  );
 };
 
 export default EmployeeManagementPage;

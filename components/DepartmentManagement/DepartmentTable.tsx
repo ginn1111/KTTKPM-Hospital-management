@@ -2,21 +2,20 @@
 
 import { Button, Card, Pagination, Table } from 'antd';
 import TableColumns from './TableColumns';
-import useUpdateEmployee from './hooks/useUpdateEmployee';
+// import useUpdateDepartment from './hooks/useUpdateDepartment';
 import { UserAddOutlined } from '@ant-design/icons';
 import dynamic from 'next/dynamic';
-import { employeeListSelector } from '@/slices/employeeSlice/selectors';
+import { departmentListSelector } from '@/slices/departmentSlice/selectors';
 import { useAppSelector } from '@/store/hooks';
 
-const ModalUpdateEmployee = dynamic(
-  () => import('./Modal/ModalUpdateEmployee'),
-);
+// const ModalUpdateDepartment = dynamic(
+//   () => import('./Modal/ModalUpdateDepartment')
+// );
 
-
-const EmployeeTable = () => {
-  const { modalUpdate, isLoading, handleOpen, handleClose, handleOpenAdd } =
-    useUpdateEmployee();
-  const employeeList = useAppSelector(employeeListSelector);
+const DepartmentTable = () => {
+  // const { modalUpdate, isLoading, handleOpen, handleClose, handleOpenAdd } =
+  //   useUpdateDepartment();
+  const departmentList = useAppSelector(departmentListSelector);
 
   return (
     <>
@@ -26,9 +25,9 @@ const EmployeeTable = () => {
             icon={<UserAddOutlined />}
             className="bg-primary mr-auto"
             type="primary"
-            onClick={handleOpenAdd}
+            // onClick={handleOpenAdd}
           >
-            Thêm nhân viên
+            Thêm phòng ban
           </Button>
           <Pagination
             size="small"
@@ -39,19 +38,19 @@ const EmployeeTable = () => {
           />
         </div>
         <Table
-          loading={isLoading}
+          // loading={isLoading}
           rowKey={(row) => row.id}
           bordered
           pagination={false}
           size="middle"
-          dataSource={employeeList}
-          columns={TableColumns({ onOpenModalUpdate: handleOpen })}
+          dataSource={departmentList}
+          columns={TableColumns({})}
           scroll={{ x: 1000 }}
         />
       </Card>
-      <ModalUpdateEmployee modal={modalUpdate} onClose={handleClose} />
+      {/* <ModalUpdateDepartment modal={modalUpdate} onClose={handleClose} /> */}
     </>
   );
 };
 
-export default EmployeeTable;
+export default DepartmentTable;

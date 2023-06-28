@@ -1,5 +1,8 @@
+'use client';
+import { default as RootLoading } from '@/app/loading';
+
 const Loading = () => {
-  return <div>Loading</div>;
+  return <RootLoading />;
 };
 
 export default Loading;

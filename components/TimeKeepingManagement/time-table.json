@@ -1,0 +1,66 @@
+{
+  "week1": [
+    {
+      "0": {
+        "date": "2023-06-28T12:54:39.012Z",
+        "employees": [
+          { "fullName": "Nguyễn Văn A" },
+          { "fullName": "Nguyễn Văn B" }
+        ]
+      },
+      "1": {},
+      "2": {},
+      "3": {},
+      "4": {},
+      "5": {},
+      "6": {}
+    },
+    {
+      "0": {
+        "date": "2023-06-28T12:54:39.012Z",
+        "employees": [
+          { "fullName": "Nguyễn Văn A" },
+          { "fullName": "Nguyễn Văn B" }
+        ]
+      },
+      "1": {
+        "date": "2023-06-29T12:54:39.012Z"
+      },
+      "2": {},
+      "3": {},
+      "4": {
+        "date": "2023-06-28T12:54:39.012Z",
+        "employees": [
+          { "fullName": "Nguyễn Văn A" },
+          { "fullName": "Nguyễn Văn B" }
+        ]
+      },
+      "5": {},
+      "6": {}
+    },
+    {
+      "0": {
+        "date": "2023-06-28T12:54:39.012Z",
+        "employees": [{ "fullName": "Nguyễn Văn A" }]
+      },
+      "1": {},
+      "2": {},
+      "3": {},
+      "4": {
+        "date": "2023-06-28T12:54:39.012Z",
+        "employees": [
+          { "fullName": "Nguyễn Văn A" },
+          { "fullName": "Nguyễn Văn B" }
+        ]
+      },
+      "5": {},
+      "6": {
+        "date": "2023-06-28T12:54:39.012Z",
+        "employees": [
+          { "fullName": "Nguyễn Văn A" },
+          { "fullName": "Nguyễn Văn B" }
+        ]
+      }
+    }
+  ]
+}
