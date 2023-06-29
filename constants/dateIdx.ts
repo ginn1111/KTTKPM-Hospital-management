@@ -5,5 +5,5 @@ export const dateIdx: { [k: number]: string } = {
   3: 'Thứ Năm',
   4: 'Thứ Sáu',
   5: 'Thứ Bảy',
-  6: 'Chủ nhật',
+  6: 'Chủ Nhật',
 };

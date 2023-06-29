@@ -12,3 +12,20 @@ export const departmentLoadingSelector = createSelector(
   departmentSelector,
   (department) => department.loading
 );
+
+export const departmentIndexSelector = createSelector(
+  departmentListSelector,
+  (departmentList): { [k: string]: string } => {
+    if (departmentList?.length) {
+      return departmentList.reduce(
+        (index, department) => ({
+          ...index,
+          [department.id]: department.departmentName,
+        }),
+        {}
+      );
+    }
+
+    return {};
+  }
+);

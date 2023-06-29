@@ -14,6 +14,7 @@ import { notification } from 'antd';
 interface IEmployeeSlice {
   loading: boolean;
   employeeList: Partial<Employee>[];
+  total?: number;
 }
 const INITIAL_STATE: IEmployeeSlice = {
   employeeList: [],
@@ -41,9 +42,9 @@ export const deleteEmployeeThunk = createAsyncThunk(
 
 export const getAllEmployeeThunk = createAsyncThunk(
   'employee-get-all-thunk',
-  async (_, thunkAPI) => {
+  async (paging: Paging, thunkAPI) => {
     try {
-      const employeeList = await getAllEmployee();
+      const employeeList = await getAllEmployee(paging);
       return {
         employeeList,
       };
@@ -87,9 +88,10 @@ const employeeSlice = createSlice({
   reducers: {
     setEmployeeList: (
       state,
-      action: PayloadAction<{ employeeList: Employee[] }>
+      action: PayloadAction<{ employeeList: Employee[]; total: number }>
     ) => {
       state.employeeList = action.payload.employeeList;
+      state.total = action.payload.total;
     },
   },
   extraReducers: (_builder) => {
@@ -105,6 +107,14 @@ const employeeSlice = createSlice({
         }
       }
     );
+    _builder.addCase(getAllEmployeeThunk.fulfilled, (state, action) => {
+      state.loading = false;
+      Object.assign(state, {
+        loading: false,
+        total: action.payload?.employeeList.total,
+        employeeList: action.payload?.employeeList?.data,
+      });
+    });
     _builder.addCase(updateEmployeeThunk.rejected, (state) => {
       state.loading = false;
       notification.error({
@@ -145,7 +155,7 @@ const employeeSlice = createSlice({
       isFulfilled(deleteEmployeeThunk, getAllEmployeeThunk),
       (state, action) => {
         state.loading = false;
-        state.employeeList = action.payload?.employeeList ?? [];
+        state.employeeList = action.payload?.employeeList.data ?? [];
       }
     );
   },

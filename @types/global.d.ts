@@ -22,6 +22,16 @@ declare global {
     isComposite: true;
     departmentId: null | string | number;
   };
+
+  export type ResponseList<T> = {
+    data: T[];
+    total?: number;
+  };
+
+  export type Paging = {
+    offset: number;
+    limit: number;
+  };
 }
 
 export {};

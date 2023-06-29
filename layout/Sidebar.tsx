@@ -18,8 +18,8 @@ const ITEMS: MenuProps['items'] = [
     icon: <UserOutlined />,
   },
   {
-    key: '/quan-ly-cham-cong',
-    label: <Link href="/quan-ly-cham-cong">Quản lý chấm công</Link>,
+    key: '/quan-ly-lich-truc',
+    label: <Link href="/quan-ly-lich-truc">Quản lý lịch trực</Link>,
     icon: <FieldTimeOutlined />,
   },
   // {

@@ -8,6 +8,11 @@ export const employeeListSelector = createSelector(
   (employee) => employee.employeeList as Employee[]
 );
 
+export const employeeTotalSelector = createSelector(
+  employeeSelector,
+  (employee) => employee.total
+);
+
 export const employeeLoadingSelector = createSelector(
   employeeSelector,
   (employee) => employee.loading

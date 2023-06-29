@@ -1,7 +1,8 @@
 import { genderIdx } from '@/constants/genderIdx';
 import { centeredColumnsTable } from '@/helper/format';
+import { departmentIndexSelector } from '@/slices/departmentSlice/selectors';
 import { deleteEmployeeThunk } from '@/slices/employeeSlice';
-import { useAppDispatch } from '@/store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import {
   EditOutlined,
   DeleteOutlined,
@@ -55,6 +56,7 @@ const TableColumns = ({
   onOpenModalUpdate,
 }: TableColumnsProps): ColumnsType<Employee> => {
   const dispatch = useAppDispatch();
+  const departmentIdx = useAppSelector(departmentIndexSelector);
   const [deleteConfirm, setDeleteConfirm] = useState<{
     id: string | null;
     open: boolean;
@@ -80,11 +82,6 @@ const TableColumns = ({
         ),
       },
       {
-        title: 'Mã nhân viên',
-        key: 'id',
-        dataIndex: 'id',
-      },
-      {
         title: 'Họ và tên',
         key: 'fullName',
         dataIndex: 'fullName',
@@ -103,6 +100,12 @@ const TableColumns = ({
         render: (dateOfBirth: string) => (
           <span>{dayjs(dateOfBirth).format('DD-MM-YYYY')}</span>
         ),
+      },
+      {
+        title: 'Phòng ban',
+        key: 'departmentId',
+        dataIndex: 'departmentId',
+        render: (departmentId: string) => <p>{departmentIdx[departmentId]}</p>,
       },
       {
         title: 'Địa chỉ',

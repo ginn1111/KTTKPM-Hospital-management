@@ -18,8 +18,12 @@ const EmployeeManagementPage = async () => {
   ]);
 
   return (
-    <main>
-      <Preloader employeeList={employeeList} departmentList={departmentList} />
+    <main className="h-full overflow-y-auto">
+      <Preloader
+        totalEmployeeList={employeeList?.total}
+        employeeList={employeeList.data}
+        departmentList={departmentList}
+      />
       <EmployeeManagement />
     </main>
   );
