@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 type TimeTableItemProps = {
   header?: ReactNode | JSX.Element;
-} & TableProps<Employee>;
+} & TableProps<{ name: string; id: string }>;
 
 const TimeTableItem = ({ header, ...rest }: TimeTableItemProps) => {
   return (

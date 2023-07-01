@@ -8,11 +8,11 @@ import {
 } from '@reduxjs/toolkit';
 import { notification } from 'antd';
 
-interface IEmployeeSlice {
+interface IDepartment {
   loading: boolean;
   departmentList: Partial<Department>[];
 }
-const INITIAL_STATE: IEmployeeSlice = {
+const INITIAL_STATE: IDepartment = {
   departmentList: [],
   loading: false,
 };

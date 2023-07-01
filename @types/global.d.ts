@@ -32,6 +32,22 @@ declare global {
     offset: number;
     limit: number;
   };
+
+  export type ScheduleDate = '0' | '1' | '2' | '3' | '4' | '5' | '6';
+
+  export type ScheduleShift = 'morning' | 'afternoon';
+
+  export type Schedule = {
+    [K in ScheduleDate]: {
+      [S in ScheduleShift]: { name: string; id: string };
+    };
+  };
+
+  export type ScheduleItem = {
+    id: string;
+    department_name: string;
+    schedule: Schedule;
+  };
 }
 
 export {};

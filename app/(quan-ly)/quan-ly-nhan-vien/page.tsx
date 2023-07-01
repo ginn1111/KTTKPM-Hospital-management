@@ -22,7 +22,7 @@ const EmployeeManagementPage = async () => {
       <Preloader
         totalEmployeeList={employeeList?.total}
         employeeList={employeeList.data}
-        departmentList={departmentList}
+        departmentList={departmentList.data}
       />
       <EmployeeManagement />
     </main>

@@ -27,6 +27,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
           borderRadius: defaultData.borderRadius,
           fontFamily: 'var(--font-mono)',
         },
+        hashed: false,
       }}
     >
       <Provider store={store}>{children}</Provider>

@@ -55,7 +55,6 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
   };
 
   const handleAdd = (payload: Partial<Employee>) => {
-    alert(JSON.stringify(payload));
     dispatch(addNewEmployeeThunk(payload));
   };
   const handleUpdate = (payload: Partial<Employee>) => {
