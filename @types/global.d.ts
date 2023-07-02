@@ -5,13 +5,14 @@ declare global {
     id: string;
     fullName: string;
     gender: number;
-    dateOfBirdth: string;
+    dateOfBirth: string;
     address: string;
     phone: string;
     email: string;
     isActive: boolean;
     isComposite: boolean;
     departmentId: string;
+    isLeader: boolean;
   };
 
   export type Department = {
@@ -40,6 +41,9 @@ declare global {
   export type Schedule = {
     [K in ScheduleDate]: {
       [S in ScheduleShift]: { name: string; id: string };
+    } & {
+date: string;
+
     };
   };
 

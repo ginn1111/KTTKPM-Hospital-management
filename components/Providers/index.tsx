@@ -25,9 +25,9 @@ const Providers = ({ children }: { children: ReactNode }) => {
           colorBorder: defaultData.colorPrimary,
           controlItemBgActive: defaultData.accent,
           borderRadius: defaultData.borderRadius,
-          fontFamily: 'var(--font-mono)',
+          fontFamily: 'var(--font-sans)',
         },
-        hashed: false,
+        // hashed: false,
       }}
     >
       <Provider store={store}>{children}</Provider>

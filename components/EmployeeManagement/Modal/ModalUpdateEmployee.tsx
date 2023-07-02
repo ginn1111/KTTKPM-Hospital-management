@@ -1,18 +1,18 @@
 'use client';
 
-import Modal from 'antd/es/modal/Modal';
-import React, { useEffect, useState } from 'react';
-import { ModalUpdateProps } from '../hooks/useUpdateEmployee';
-import { DatePicker, Form, Input, Select, Spin, notification } from 'antd';
-import TextArea from 'antd/es/input/TextArea';
-import dayjs, { Dayjs } from 'dayjs';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { departmentListSelector } from '@/slices/departmentSlice/selectors';
 import {
   addNewEmployeeThunk,
   updateEmployeeThunk,
 } from '@/slices/employeeSlice';
 import { employeeLoadingSelector } from '@/slices/employeeSlice/selectors';
-import { departmentListSelector } from '@/slices/departmentSlice/selectors';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { DatePicker, Form, Input, Select, Spin } from 'antd';
+import TextArea from 'antd/es/input/TextArea';
+import Modal from 'antd/es/modal/Modal';
+import dayjs, { Dayjs } from 'dayjs';
+import { useEffect, useState } from 'react';
+import { ModalUpdateProps } from '../hooks/useUpdateEmployee';
 
 type ModalUpdateEmployeeProps = {
   modal: ModalUpdateProps;
@@ -20,8 +20,8 @@ type ModalUpdateEmployeeProps = {
 };
 
 type FormEmployee = {
-  dateOfBirdth: Dayjs;
-} & Partial<Omit<Employee, 'dateOfBirdth'>>;
+  dateOfBirth: Dayjs;
+} & Partial<Omit<Employee, 'dateOfBirth'>>;
 
 const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
   const dispatch = useAppDispatch();
@@ -32,12 +32,12 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
 
   useEffect(() => {
     if (!modal?.isAdd) {
-      const { dateOfBirdth, ...restValues } = modal.data;
+      const { dateOfBirth, ...restValues } = modal.data;
 
-      const fmtBirthday = dayjs(dateOfBirdth);
+      const fmtBirthday = dayjs(dateOfBirth);
 
       form.setFieldsValue({
-        dateOfBirdth: fmtBirthday,
+        dateOfBirth: fmtBirthday,
         ...restValues,
       });
     }
@@ -65,12 +65,19 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
     try {
       await form.validateFields();
 
-      const { dateOfBirdth, ...restValue } = form.getFieldsValue();
-      const fmtDob = dayjs(dateOfBirdth).format();
+      const { dateOfBirth, ...restValue } = form.getFieldsValue();
+      const fmtDob = dayjs(dateOfBirth).format();
 
       const payload: Partial<Employee> = {
-        dateOfBirdth: fmtDob,
+        dateOfBirth: fmtDob,
         ...restValue,
+        // fullName: 'Nguyễn Thị N',
+        // gender: 0,
+        // dateOfBirth: '2000-02-02',
+        // address: 'Quan 9, Ho Chi Minh',
+        // phone: '0123123123',
+        // email: 'ntn@gmail.com',
+        // departmentId: 'cb910bb6-1c9a-467a-9f85-e336c246dd94',
       };
       if (modal?.isAdd) {
         handleAdd(payload);
@@ -84,6 +91,7 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
 
   return (
     <Modal
+      centered
       title={title}
       open={modal.open}
       onCancel={handleClose}
@@ -100,7 +108,8 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
         <Form
           initialValues={{
             gender: 0,
-            dateOfBirdth: dayjs(),
+            dateOfBirth: dayjs(),
+            departmentId: departmentList?.[0].id,
           }}
           onFieldsChange={() => setIsDirty(true)}
           validateTrigger="onBlur"
@@ -118,7 +127,30 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
           >
             <Input placeholder="họ và tên" />
           </Form.Item>
-          <Form.Item label="Giới tính" name="gender">
+
+          <Form.Item
+            className="mt-8"
+            hasFeedback
+            label="Email"
+            name="email"
+            rules={[{ required: true, message: 'Vui lòng nhập email' }]}
+          >
+            <Input placeholder="email" />
+          </Form.Item>
+          <Form.Item
+            className="mt-8"
+            hasFeedback
+            label="Số điện thoại"
+            name="phone"
+            rules={[{ required: true, message: 'Vui lòng nhập số điện thoại' }]}
+          >
+            <Input placeholder="số điện thoại" />
+          </Form.Item>
+          <Form.Item
+            label="Giới tính"
+            name="gender"
+            rules={[{ required: true, message: 'Vui lòng chọn giới tính' }]}
+          >
             <Select
               options={[
                 { label: 'Nam', value: 1 },
@@ -127,22 +159,31 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
             />
           </Form.Item>
 
-          <Form.Item label="Phòng ban" name="departmentId">
-            <Select
-              options={departmentList.map(({ id, departmentName }) => ({
-                value: id,
-                label: departmentName,
-              }))}
-            />
-          </Form.Item>
-          <Form.Item label="Ngày sinh" name="dateOfBirdth">
+          <Form.Item
+            label="Ngày sinh"
+            name="dateOfBirth"
+            rules={[{ required: true, message: 'Vui lòng chọn ngày sinh' }]}
+          >
             <DatePicker
               className="w-full"
               placeholder="ngày sinh"
               format="DD-MM-YYYY"
             />
           </Form.Item>
-          <Form.Item label="Địa chỉ" name="address">
+
+          <Form.Item label="Phòng ban" name="departmentId">
+            <Select
+              options={departmentList?.map(({ id, departmentName }) => ({
+                value: id,
+                label: departmentName,
+              }))}
+            />
+          </Form.Item>
+          <Form.Item
+            label="Địa chỉ"
+            name="address"
+            rules={[{ required: true, message: 'Vui lòng nhập địa chỉ' }]}
+          >
             <TextArea placeholder="địa chỉ" />
           </Form.Item>
         </Form>

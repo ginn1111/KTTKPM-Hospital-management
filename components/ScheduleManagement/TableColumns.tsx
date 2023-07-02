@@ -2,6 +2,7 @@ import { ShiftIndex } from '@/constants/shiftIndex';
 import { centeredColumnsTable } from '@/helper/format';
 import { Tag } from 'antd';
 import { ColumnsType } from 'antd/es/table';
+import dayjs from 'dayjs';
 
 const RenderEmployee = ({
   employee,
@@ -23,8 +24,10 @@ const RenderEmployee = ({
 
 const TableColumns = ({
   onOpenModalUpdate,
+scheduleWeek
 }: {
   onOpenModalUpdate: (record: { name: string; id: string }) => void;
+  scheduleWeek: string[];
 }): ColumnsType<{ name: string; id: string }[]> => {
   return centeredColumnsTable<{ name: string; id: string }[]>({
     centeredColumns: 'all',
@@ -38,7 +41,7 @@ const TableColumns = ({
         ),
       },
       {
-        title: 'Thứ Hai',
+        title: <p>Thứ Hai {dayjs(scheduleWeek[0]).format('DD/MM/YYYY')}</p>,
         key: '1',
         dataIndex: '1',
         width: 100,
@@ -52,7 +55,7 @@ const TableColumns = ({
         },
       },
       {
-        title: 'Thứ Ba',
+        title: <p>Thứ Ba {dayjs(scheduleWeek[1]).format('DD/MM/YYYY')}</p>,
         key: '2',
         dataIndex: '2',
         width: 100,
@@ -67,7 +70,7 @@ const TableColumns = ({
         },
       },
       {
-        title: 'Thứ Tư',
+        title: <p>Thứ Tư {dayjs(scheduleWeek[2]).format('DD/MM/YYYY')}</p>,
         key: '3',
         dataIndex: '3',
         width: 100,
@@ -82,7 +85,7 @@ const TableColumns = ({
         },
       },
       {
-        title: 'Thứ Năm',
+        title: <p>Thứ Năm {dayjs(scheduleWeek[3]).format('DD/MM/YYYY')}</p>,
         key: '4',
         dataIndex: '4',
         width: 100,
@@ -97,7 +100,7 @@ const TableColumns = ({
         },
       },
       {
-        title: 'Thứ Sáu',
+        title: <p>Thứ Sáu {dayjs(scheduleWeek[4]).format('DD/MM/YYYY')}</p>,
         key: '5',
         dataIndex: '5',
         width: 100,
@@ -112,7 +115,7 @@ const TableColumns = ({
         },
       },
       {
-        title: 'Thứ Bảy',
+        title: <p>Thứ Bảy {dayjs(scheduleWeek[5]).format('DD/MM/YYYY')}</p>,
         key: '6',
         dataIndex: '6',
         width: 100,
@@ -127,7 +130,7 @@ const TableColumns = ({
         },
       },
       {
-        title: 'Chủ Nhật',
+        title: <p>Thứ Nhật {dayjs(scheduleWeek[6]).format('DD/MM/YYYY')}</p>,
         key: '0',
         dataIndex: '0',
         width: 100,

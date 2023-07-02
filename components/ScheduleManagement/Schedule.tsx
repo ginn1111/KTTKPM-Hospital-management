@@ -36,11 +36,11 @@ const Schedule = () => {
   const [modalUpdate, setModalUpdate] = useState<
     { id: string; name: string } | undefined
   >();
-  const scheduleList = useAppSelector(scheduleListSelector);
+  const scheduleObject = useAppSelector(scheduleListSelector);
 
   return (
     <>
-      {scheduleList.map((scheduleItem) => {
+      {scheduleObject.scheduleList.map((scheduleItem) => {
         return (
           <>
             <TimeTableItem
@@ -53,7 +53,7 @@ const Schedule = () => {
               scroll={{ x: 1000 }}
               dataSource={scheduleItem.schedule as any}
               columns={
-                TableColumns({ onOpenModalUpdate: setModalUpdate }) as any
+                TableColumns({ onOpenModalUpdate: setModalUpdate, scheduleWeek: scheduleObject.scheduleWeek }) as any
               }
               rowKey={(row) => row.id}
             />

@@ -14,7 +14,7 @@ const DepartmentManagement = async () => {
 
   return (
     <main>
-      <Preloader departmentList={departmentList} />
+      <Preloader departmentList={departmentList.data} />
       <DepartmentTable />
     </main>
   );

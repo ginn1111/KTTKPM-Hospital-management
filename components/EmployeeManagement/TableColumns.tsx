@@ -8,7 +8,7 @@ import {
   DeleteOutlined,
   EllipsisOutlined,
 } from '@ant-design/icons';
-import { Button, Dropdown, Popconfirm } from 'antd';
+import { Button, Dropdown, Popconfirm, notification } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { ColumnsType } from 'antd/es/table';
 import dayjs from 'dayjs';
@@ -65,8 +65,9 @@ const TableColumns = ({
     open: false,
   });
 
-  const handleDeleteEmployee = (employeeId: string) => {
-    dispatch(deleteEmployeeThunk(employeeId));
+  const handleDeleteEmployee = async (employeeId: string) => {
+    await dispatch(deleteEmployeeThunk(employeeId)).unwrap();
+    notification.success({ message: 'Đã xoá nhân viên' });
     setDeleteConfirm({ open: false, id: null });
   };
 

@@ -29,7 +29,7 @@ const ITEMS: MenuProps['items'] = [
   // },
 ];
 
-type SidebarProps = {} & SiderProps;
+type SidebarProps = SiderProps;
 
 const Sidebar = (props: SidebarProps) => {
   const pathname = usePathname();

@@ -9,6 +9,4 @@ export const deleteEmployee = async (employeeId: string) => {
   if (!response.ok) {
     throw Error('Delete employee failed');
   }
-
-  return response.json();
 };

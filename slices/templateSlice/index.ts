@@ -17,7 +17,6 @@ const templateSlice = createSlice({
       state.templateMsg = action.payload;
     },
   },
-  extraReducers: (_builder) => {},
 });
 
 export default templateSlice.reducer;

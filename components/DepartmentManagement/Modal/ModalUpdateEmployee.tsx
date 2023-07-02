@@ -32,9 +32,9 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
 
   useEffect(() => {
     if (!modal?.isAdd) {
-      const { dateOfBirdth, ...restValues } = modal.data;
+      const { dateOfBirth, ...restValues } = modal.data;
 
-      const fmtBirthday = dayjs(dateOfBirdth);
+      const fmtBirthday = dayjs(dateOfBirth);
 
       form.setFieldsValue({
         dateOfBirdth: fmtBirthday,
@@ -70,7 +70,7 @@ const ModalUpdateEmployee = ({ modal, onClose }: ModalUpdateEmployeeProps) => {
       const fmtDob = dayjs(dateOfBirdth).format();
 
       const payload: Partial<Employee> = {
-        dateOfBirdth: fmtDob,
+        dateOfBirth: fmtDob,
         ...restValue,
       };
       if (modal?.isAdd) {

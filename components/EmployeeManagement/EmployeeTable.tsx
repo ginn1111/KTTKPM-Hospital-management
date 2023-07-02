@@ -20,7 +20,6 @@ const EmployeeTable = () => {
   const { modalUpdate, isLoading, handleOpen, handleClose, handleOpenAdd } =
     useUpdateEmployee();
   const employeeList = useAppSelector(employeeListSelector);
-
   const employeeTotal = useAppSelector(employeeTotalSelector);
 
   const dispatch = useAppDispatch();

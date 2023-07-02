@@ -28,13 +28,16 @@ export const deleteEmployeeThunk = createAsyncThunk(
       const deleteEmployeeData = deleteEmployee(employeeId);
       const employeeListData = getAllEmployee();
 
-      const [, employeeList] = await Promise.all([
+      const [deleteResponse, employeeList] = await Promise.all([
         deleteEmployeeData,
         employeeListData,
       ]);
 
+      console.log(deleteResponse);
+
       return { employeeList };
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue((error as Error).message);
     }
   }
