@@ -8,7 +8,7 @@ export const getAllEmployee = async (
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/employee?${searchParams.toString()}`,
     {
-      next: { revalidate: 30 },
+     cache: 'no-store',
     }
   );
 

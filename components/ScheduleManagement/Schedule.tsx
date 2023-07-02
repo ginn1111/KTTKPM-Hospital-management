@@ -53,7 +53,10 @@ const Schedule = () => {
               scroll={{ x: 1000 }}
               dataSource={scheduleItem.schedule as any}
               columns={
-                TableColumns({ onOpenModalUpdate: setModalUpdate, scheduleWeek: scheduleObject.scheduleWeek }) as any
+                TableColumns({
+                  onOpenModalUpdate: setModalUpdate,
+                  scheduleWeek: scheduleObject.scheduleWeek,
+                }) as any
               }
               rowKey={(row) => row.id}
             />

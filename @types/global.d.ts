@@ -42,8 +42,7 @@ declare global {
     [K in ScheduleDate]: {
       [S in ScheduleShift]: { name: string; id: string };
     } & {
-date: string;
-
+      date: string;
     };
   };
 

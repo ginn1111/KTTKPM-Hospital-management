@@ -2,7 +2,7 @@ export const DEPARTMENT_BASE_URL = `${process.env.NEXT_PUBLIC_BASE_URL}/departme
 
 export const getAllDepartment = async () => {
   const response = await fetch(DEPARTMENT_BASE_URL, {
-    next: { revalidate: 30 },
+    cache: 'no-store'
   });
 
   if (!response.ok) {

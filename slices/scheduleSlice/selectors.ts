@@ -8,7 +8,7 @@ export const scheduleListSelector = createSelector(
   (schedule) => {
     const { scheduleList = [] } = schedule ?? {};
 
-    const scheduleWeek = getScheduleWeek(scheduleList[0].schedule)
+    const scheduleWeek = getScheduleWeek(scheduleList[0].schedule);
 
     const _scheduleList = scheduleList.map((scheduleItem) => {
       const morningSchedule = getScheduleWithShift(
@@ -31,7 +31,7 @@ export const scheduleListSelector = createSelector(
     return {
       scheduleList: _scheduleList,
       scheduleWeek,
-    }
+    };
   }
 );
 
@@ -44,7 +44,7 @@ export const scheduleLoadingSelector = createSelector(
 
 const getScheduleWithShift = (schedule: Schedule, shift: ScheduleShift) => {
   return Object.keys(schedule).reduce((acc, key) => {
-    const scheduleDate = schedule[key as ScheduleDate]
+    const scheduleDate = schedule[key as ScheduleDate];
     const shiftData = scheduleDate[shift];
 
     return {
@@ -55,8 +55,7 @@ const getScheduleWithShift = (schedule: Schedule, shift: ScheduleShift) => {
 };
 
 const getScheduleWeek = (schedule: Schedule) => {
-  return Object.keys(schedule).map(key => {
-    return schedule[key as ScheduleDate].date
-  })
-}
-
+  return Object.keys(schedule).map((key) => {
+    return schedule[key as ScheduleDate].date;
+  });
+};

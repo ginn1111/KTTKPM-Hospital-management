@@ -24,7 +24,7 @@ const RenderEmployee = ({
 
 const TableColumns = ({
   onOpenModalUpdate,
-scheduleWeek
+  scheduleWeek,
 }: {
   onOpenModalUpdate: (record: { name: string; id: string }) => void;
   scheduleWeek: string[];
@@ -41,7 +41,11 @@ scheduleWeek
         ),
       },
       {
-        title: <p>Thứ Hai {dayjs(scheduleWeek[0]).format('DD/MM/YYYY')}</p>,
+        title: (
+          <p>
+            Thứ Hai <p>{dayjs(scheduleWeek[0]).format('DD/MM/YYYY')}</p>
+          </p>
+        ),
         key: '1',
         dataIndex: '1',
         width: 100,
@@ -55,7 +59,11 @@ scheduleWeek
         },
       },
       {
-        title: <p>Thứ Ba {dayjs(scheduleWeek[1]).format('DD/MM/YYYY')}</p>,
+        title: (
+          <p>
+            Thứ Ba <p>{dayjs(scheduleWeek[1]).format('DD/MM/YYYY')}</p>
+          </p>
+        ),
         key: '2',
         dataIndex: '2',
         width: 100,
@@ -70,7 +78,11 @@ scheduleWeek
         },
       },
       {
-        title: <p>Thứ Tư {dayjs(scheduleWeek[2]).format('DD/MM/YYYY')}</p>,
+        title: (
+          <p>
+            Thứ Tư <p>{dayjs(scheduleWeek[2]).format('DD/MM/YYYY')}</p>
+          </p>
+        ),
         key: '3',
         dataIndex: '3',
         width: 100,
@@ -85,7 +97,11 @@ scheduleWeek
         },
       },
       {
-        title: <p>Thứ Năm {dayjs(scheduleWeek[3]).format('DD/MM/YYYY')}</p>,
+        title: (
+          <p>
+            Thứ Năm <p>{dayjs(scheduleWeek[3]).format('DD/MM/YYYY')}</p>
+          </p>
+        ),
         key: '4',
         dataIndex: '4',
         width: 100,
@@ -100,7 +116,11 @@ scheduleWeek
         },
       },
       {
-        title: <p>Thứ Sáu {dayjs(scheduleWeek[4]).format('DD/MM/YYYY')}</p>,
+        title: (
+          <p>
+            Thứ Sáu <p>{dayjs(scheduleWeek[4]).format('DD/MM/YYYY')}</p>
+          </p>
+        ),
         key: '5',
         dataIndex: '5',
         width: 100,
@@ -115,7 +135,11 @@ scheduleWeek
         },
       },
       {
-        title: <p>Thứ Bảy {dayjs(scheduleWeek[5]).format('DD/MM/YYYY')}</p>,
+        title: (
+          <p>
+            Thứ Bảy <p>{dayjs(scheduleWeek[5]).format('DD/MM/YYYY')}</p>
+          </p>
+        ),
         key: '6',
         dataIndex: '6',
         width: 100,
@@ -130,7 +154,11 @@ scheduleWeek
         },
       },
       {
-        title: <p>Thứ Nhật {dayjs(scheduleWeek[6]).format('DD/MM/YYYY')}</p>,
+        title: (
+          <p>
+            Chủ Nhật <p>{dayjs(scheduleWeek[6]).format('DD/MM/YYYY')}</p>
+          </p>
+        ),
         key: '0',
         dataIndex: '0',
         width: 100,
